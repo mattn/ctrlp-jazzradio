@@ -1,5 +1,5 @@
 if exists('g:loaded_ctrlp_jazzradio') && g:loaded_ctrlp_jazzradio
-	"finish
+  finish
 endif
 let g:loaded_ctrlp_jazzradio = 1
 
@@ -14,9 +14,9 @@ let s:jazzradio_var = {
 \}
 
 if exists('g:ctrlp_ext_vars') && !empty(g:ctrlp_ext_vars)
-	let g:ctrlp_ext_vars = add(g:ctrlp_ext_vars, s:jazzradio_var)
+  let g:ctrlp_ext_vars = add(g:ctrlp_ext_vars, s:jazzradio_var)
 else
-	let g:ctrlp_ext_vars = [s:jazzradio_var]
+  let g:ctrlp_ext_vars = [s:jazzradio_var]
 endif
 
 function! ctrlp#jazzradio#init()
@@ -25,7 +25,7 @@ function! ctrlp#jazzradio#init()
 endfunc
 
 function! ctrlp#jazzradio#accept(mode, str)
-	call ctrlp#exit()
+  call ctrlp#exit()
   let id = matchstr(a:str, '\[\zs.\+\ze\]$')
   if len(id)
     call jazzradio#play(id)
@@ -40,7 +40,7 @@ endfunction
 
 let s:id = g:ctrlp_builtins + len(g:ctrlp_ext_vars)
 function! ctrlp#jazzradio#id()
-	return s:id
+  return s:id
 endfunction
 
 " vim:fen:fdl=0:ts=2:sw=2:sts=2
